@@ -8,5 +8,5 @@ Intelli Chatbot aims to answer all your simple queries through the WolfromAlpha 
 
 
 ## Instructions to use
-1.Go to WolfromAlpha and create an account
-2.Obtain an API key and add it into main.py
+1. Go to WolfromAlpha and create an account
+2. Obtain an API key and add it into main.py
