@@ -2,11 +2,16 @@ import wolframalpha
 import PySimpleGUI as sg
 import time
 import wikipedia
-app_id = 'ADD YOUR API KEY HERE'  # get your own at https://products.wolframalpha.com/api/
+import pyttsx3
+
+app_id = 'ADD API KEY HERE'  # get your own at https://products.wolframalpha.com/api/
 client = wolframalpha.Client(app_id)
 
 
 
+engine = pyttsx3.init()
+# engine.say("I will speak this text")
+# engine.runAndWait()
 
 sg.theme('LightGreen')
 layout = [  [sg.Text('Enter your Question: '), sg.InputText()],
@@ -44,7 +49,11 @@ while True:
 
         progress_bar.UpdateBar(5, 5)
         time.sleep(.5)
-        sg.Popup(next(wolframalpha_res.results).text,"Wikipedia Results:",wiki_res)
+
+        sg.PopupNonBlocking(next(wolframalpha_res.results).text,"Wikipedia Results:",wiki_res)
+        engine.say(next(wolframalpha_res.results).text)
+        engine.say(wiki_res)
+        engine.runAndWait()
         progress_bar.UpdateBar(0, 5)
 
 
